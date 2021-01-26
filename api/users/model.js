@@ -2,12 +2,17 @@ const db = require("../../data/dbConfig")
 
 module.exports = {
   find,
+  findBy,
   findById,
   add
 }
 
 function find() {
   return db("users").orderBy("id")
+}
+
+function findBy(filter) {
+  return db("users").where(filter)
 }
 
 async function add(user) {
